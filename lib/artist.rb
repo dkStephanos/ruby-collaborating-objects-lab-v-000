@@ -9,7 +9,9 @@ class Artist
   end
 
   def save
-    @@all << self
+    if !@@all.include?(self)
+      @@all << self
+    end
   end
 
   def self.all
