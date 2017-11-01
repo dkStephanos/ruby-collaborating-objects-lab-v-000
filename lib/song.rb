@@ -17,7 +17,7 @@ class Song
   def self.new_by_filename(file_name)
     @data = file_name.delete(".mp3").split(" - ")
     song = Song.new(@data[1])
-    song.artist = Artist.new(@data[0])
+    song.artist = Artist.find_or_create_by_name(@data[0])
     song.artist.add_song(song)
     song.artist.save
     song
