@@ -19,6 +19,7 @@ class Song
     song = Song.new(@data[1])
     song.artist = Artist.new(@data[0])
     song.artist.add_song(song)
+    song.artist.save
     song
   end
 end
